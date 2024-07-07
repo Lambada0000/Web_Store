@@ -1,0 +1,31 @@
+[
+  {
+    "model": "catalog.category",
+    "pk": 1,
+    "fields": {
+      "name": "Ноутбуки",
+      "description": "Каталог ноутбуков для различных целей"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 2,
+    "fields": {
+      "name": "Мониторы",
+      "description": "Каталог мониторов для различных целей"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 1,
+    "fields": {
+      "name": "Ноутбук ASUS FX505DDT",
+      "description": "Тип ноутбука: Игровой\r\nСерия модели: TUF Gaming\r\nГарантия: 12 месяцев",
+      "image": "",
+      "category": 1,
+      "price": 49990,
+      "created_at": "2024-07-07",
+      "updated_at": null
+    }
+  }
+]
