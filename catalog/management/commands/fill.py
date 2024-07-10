@@ -48,24 +48,21 @@ class Command(BaseCommand):
                     "id": product['pk'],
                     "name": product['fields']['name'],
                     "description": product['fields']['description'],
-                    "photo": product['fields']['photo'],
-                    "category": Category.objects.get(pk=product['fields']['category']),
+                    "image": product['fields']['image'],
                     "price": product['fields']['price'],
                     "created_at": product['fields']['created_at'],
                     "updated_at": product['fields']['updated_at']
 
                 }
             )
+            if product['fields']['category']:
+                product_list[-1]["category"] = Category.objects.get(pk=product['fields']['category'])
 
         product_for_create = []
         for product_item in product_list:
             product_for_create.append(
                 Product.objects.create(**product_item)
             )
-
-        # Создаем объекты в базе с помощью метода bulk_create()
-        Category.objects.bulk_create(category_for_create)
-        Product.objects.bulk_create(product_for_create)
 
         # print(product_for_create)
         # print(category_for_create)
