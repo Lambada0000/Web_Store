@@ -19,7 +19,7 @@
     "model": "catalog.product",
     "pk": 1,
     "fields": {
-      "name": "Ноутбук ASUS FX505DDT",
+      "name": "ASUS FX505DDT",
       "description": "Тип ноутбука: Игровой\r\nСерия модели: TUF Gaming\r\nГарантия: 12 месяцев",
       "image": "category_notebook.png",
       "category": 1,
@@ -32,7 +32,7 @@
     "model": "catalog.product",
     "pk": 2,
     "fields": {
-      "name": "Ноутбук MacBook Air M2(2022) Midnight 256Gb SSD",
+      "name": "MacBook Air M2(2022) Midnight 256Gb SSD",
       "description": "MacBook Air 2022(M2) года можно назвать одним из крупнейших обновлений линейки за всю историю. Он полностью изменился внешне, получил более новый и мощный процессор M2, улучшенную веб-камеру, квадро-фонические динамики объёмного звучания, разъём MagSafe 3 и более новую клавиатуру, при этом вес ноутбука составляет всего 1240 граммов, а корпус, как и прежде, сделан из приятного алюминия",
       "image": "category_notebook.png",
       "category": 1,
