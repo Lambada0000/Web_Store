@@ -1,17 +1,23 @@
-<div class="container">
+{% extends 'blog/base.html' %}
+
+{% block content %}
     <div class="row">
-        <div class="col">
-            <from class="row" method="post" enctype="multipart/form-data">
-                <div class="card">
-                    <div class="card-body">
+        <div class="col-6">
+            <div class="card">
+                <div class="card-body">
+                    <form method="post" enctype="multipart/form-data">
                         {% csrf_token %}
                         {{ form.as_p }}
-                    </div>
-                    <button type="submit" class="btn btn-primary">
-                        Создать
-                    </button>
+                        <button type="submit" class="btn btn-success">
+                            {% if object %}
+                            Сохранить
+                            {% else %}
+                            Создать
+                            {% endif %}
+                        </button>
+                    </form>
                 </div>
-            </from>
+            </div>
         </div>
     </div>
-</div>
+{% endblock %}
