@@ -1,5 +1,5 @@
 from django.urls import reverse_lazy
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView
 from catalog.models import Product
 
 
@@ -9,10 +9,3 @@ class ProductListView(ListView):
 
 class ProductDetailView(DetailView):
     model = Product
-
-
-# CreateRUD
-class ProductCreateView(CreateView):
-    model = Product
-    fields = ('name')
-    success_url = reverse_lazy('catalog:product_list')
