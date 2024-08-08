@@ -70,6 +70,11 @@ class Product(models.Model):
         verbose_name="Дата последнего изменения",
         help_text="Укажите дату последнего изменения записи",
     )
+    views = models.PositiveIntegerField(
+        default=0,
+        verbose_name="Количество просмотров",
+        help_text="Укажите количество просмотров",
+    )
 
     class Meta:
         verbose_name = "Продукт"
