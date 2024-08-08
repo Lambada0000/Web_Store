@@ -26,8 +26,7 @@ class Blog(models.Model):
         help_text="Загрузите изображение",
     )
     created_at = models.DateTimeField(
-        blank=True,
-        null=True,
+        auto_now_add=True,
         verbose_name="Дата создания",
         help_text="Укажите дату создания",
     )
