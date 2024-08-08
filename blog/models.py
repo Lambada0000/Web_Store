@@ -20,6 +20,7 @@ class Blog(models.Model):
     )
     photo = models.ImageField(
         upload_to="product/photo",
+        default='product/photo/default.jpg',
         blank=True,
         null=True,
         verbose_name="Изображение",
