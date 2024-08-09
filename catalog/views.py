@@ -1,5 +1,6 @@
 from django.urls import reverse_lazy, reverse
-from django.views.generic import ListView, DetailView, DeleteView, UpdateView
+from django.utils.text import slugify
+from django.views.generic import ListView, DetailView, DeleteView, UpdateView, CreateView
 from catalog.models import Product
 
 
@@ -15,6 +16,19 @@ class ProductDetailView(DetailView):
         self.object.views += 1
         self.object.save()
         return self.object
+
+
+class BlogCreateView(CreateView):
+    model = Product
+    fields = ('name', 'description', 'photo', 'category', 'price')
+    success_url = reverse_lazy('catalog:product_list')
+
+    def form_valid(self, form):
+        if form.is_valid():
+            new_product = form.save()
+            new_product.slug = slugify(new_product.name)
+            new_product.save()
+        return super().form_valid(form)
 
 
 class ProductUpdateView(UpdateView):
