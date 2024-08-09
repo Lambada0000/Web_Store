@@ -36,7 +36,7 @@ class Product(models.Model):
         help_text="Введите ссылку",
     )
     description = models.TextField(
-        max_length=200,
+        max_length=500,
         verbose_name="Описание продукта",
         help_text="Введите описание продукта",
         blank=True,
