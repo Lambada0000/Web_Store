@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 
 
 class Blog(models.Model):
@@ -20,7 +21,6 @@ class Blog(models.Model):
     )
     photo = models.ImageField(
         upload_to="product/photo",
-        default='default.jpg',
         blank=True,
         null=True,
         verbose_name="Изображение",
@@ -46,6 +46,12 @@ class Blog(models.Model):
 
     def __str__(self):
         return self.name
+
+    # def get_image_url(self):
+    #     if self.photo:
+    #         return self.photo.url
+    #     else:
+    #         return f'{settings.MEDIA_URL}product/photo/default.jpg'
 
     class Meta:
         verbose_name = "Запись"
