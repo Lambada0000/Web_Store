@@ -33,6 +33,13 @@ class Blog(models.Model):
         verbose_name="Дата создания",
         help_text="Укажите дату создания",
     )
+    updated_at = models.DateField(
+        blank=True,
+        null=True,
+        auto_now=True,
+        verbose_name="Дата последнего изменения",
+        help_text="Укажите дату последнего изменения записи",
+    )
     is_published = models.BooleanField(
         default=False,
         verbose_name="Опубликовано",
