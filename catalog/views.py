@@ -18,7 +18,7 @@ class ProductDetailView(DetailView):
         return self.object
 
 
-class BlogCreateView(CreateView):
+class ProductCreateView(CreateView):
     model = Product
     fields = ('name', 'description', 'photo', 'category', 'price')
     success_url = reverse_lazy('catalog:product_list')
