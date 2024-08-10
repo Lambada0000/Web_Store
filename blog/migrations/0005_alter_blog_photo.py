@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
             name="photo",
             field=models.ImageField(
                 blank=True,
-                default="media/product/photo/default.jpg",
+                default="media/product/photo/default_blog.png",
                 help_text="Загрузите изображение",
                 null=True,
                 upload_to="product/photo",
