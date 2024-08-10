@@ -8,7 +8,6 @@ class Category(models.Model):
         help_text="Введите наименование категории",
     )
     description = models.TextField(
-        max_length=200,
         verbose_name="Описание категории",
         help_text="Введите описание категории",
         blank=True,
