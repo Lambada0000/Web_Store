@@ -21,7 +21,7 @@ class ProductDetailView(DetailView):
 
 class ProductCreateView(CreateView):
     model = Product
-    fields = ProductForm
+    form_class = ProductForm
     success_url = reverse_lazy('catalog:product_list')
 
     def form_valid(self, form):
@@ -34,7 +34,7 @@ class ProductCreateView(CreateView):
 
 class ProductUpdateView(UpdateView):
     model = Product
-    fields = ProductForm
+    form_class = ProductForm
     success_url = reverse_lazy('catalog:product_list')
 
     def get_success_url(self):
