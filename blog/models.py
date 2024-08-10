@@ -54,12 +54,6 @@ class Blog(models.Model):
     def __str__(self):
         return self.name
 
-    # def get_image_url(self):
-    #     if self.photo:
-    #         return self.photo.url
-    #     else:
-    #         return f'{settings.MEDIA_URL}product/photo/default.jpg'
-
     class Meta:
         verbose_name = "Запись"
         verbose_name_plural = "Записи"
