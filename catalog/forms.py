@@ -39,3 +39,14 @@ class VersionForm(StyleFormMixin, ModelForm):
             if forbidden_word in cleaned_data.lower():
                 raise ValidationError(f'Описание не должно содержать слово "{forbidden_word}"')
         return cleaned_data
+
+    def clean(self):
+        cleaned_data = super().clean()
+        is_version_active = cleaned_data.get('is_version_active')
+        if is_version_active:
+            active_versions = Version.objects.filter(is_version_active=True)
+            if self.instance.pk:
+                active_versions = active_versions.exclude(pk=self.instance.pk)
+            if active_versions.exists():
+                raise ValidationError("Может быть только одна активная версия.")
+        return cleaned_data
