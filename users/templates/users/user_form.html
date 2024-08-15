@@ -4,10 +4,19 @@
     <form class="row" method="post" enctype="multipart/form-data">
         <div class="col-6">
             <div class="card">
+                {% if user.is_authenticated %}
+                <p class="card-text">Профиль</p>
+                {% else %}
+                <p class="card-text">Зарегистрируйтесь</p>
+                {% endif %}
                 <div class="card-body">
                     {% csrf_token %}
                     {{ form.as_p }}
+                    {% if user.is_authenticated %}
+                    <button type="submit" class="btn btn-success">Сохранить</button>
+                    {% else %}
                     <button type="submit" class="btn btn-success">Зарегистрироваться</button>
+                    {% endif %}
                     <a class="btn btn-primary" href="{% url 'catalog:product_list' %}" role="button">Назад</a>
                 </div>
             </div>
