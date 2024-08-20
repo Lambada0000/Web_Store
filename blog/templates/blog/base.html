@@ -172,7 +172,9 @@
       <div class="col-lg-6 col-md-8 mx-auto">
         <h1 class="fw-light">Блог</h1>
         <p>
+          {% if perms.blog.can_add_blog_post or user.is_superuser %}
           <a class="btn btn-primary" href="{% url 'blog:create' %}" role="button">Добавить запись</a>
+          {% endif %}
         </p>
       </div>
     </div>
