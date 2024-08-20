@@ -18,14 +18,16 @@ class ProductListView(ListView):
     model = Product
 
 
-class ProductDetailView(DetailView):
+class ProductDetailView(DetailView, LoginRequiredMixin):
     model = Product
 
     def get_object(self, queryset=None):
         self.object = super().get_object(queryset)
-        self.object.views += 1
-        self.object.save()
-        return self.object
+        if self.request.user == self.object.creator:
+            self.object.views += 1
+            self.object.save()
+            return self.object
+        raise PermissionDenied
 
 
 class ProductCreateView(CreateView, LoginRequiredMixin):
