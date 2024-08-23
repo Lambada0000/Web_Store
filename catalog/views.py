@@ -23,7 +23,7 @@ class ProductDetailView(DetailView, LoginRequiredMixin):
 
     def get_object(self, queryset=None):
         self.object = super().get_object(queryset)
-        if self.request.user == self.object.creator:
+        if self.request.user == self.object.creator or self.request.user.is_superuser:
             self.object.views += 1
             self.object.save()
             return self.object
@@ -43,7 +43,7 @@ class ProductCreateView(CreateView, LoginRequiredMixin):
 
         product = form.save()
         user = self.request.user
-        product.owner = user
+        product.creator = user
         product.save()
         return super().form_valid(form)
 
