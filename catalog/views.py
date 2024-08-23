@@ -12,10 +12,14 @@ from django.views.generic import (
 )
 from .forms import ProductForm, VersionForm, ProductModeratorForm
 from .models import Product, Version
+from .services import get_categories_from_cache
 
 
 class ProductListView(ListView):
     model = Product
+
+    def get_queryset(self):
+        return get_categories_from_cache
 
 
 class ProductDetailView(DetailView, LoginRequiredMixin):
